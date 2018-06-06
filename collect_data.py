@@ -10,6 +10,6 @@ soup = BeautifulSoup(page.content, 'html.parser')
 
 stat_rows = soup.find('table').find_all('tr')
 for row in stat_rows:
-	cells = row.find_all("td")
-	print ','.join(cells) 
+	fields = [cell.get_text() for cell in row.find_all("td")]
+	print ','.join(fields) 
 
